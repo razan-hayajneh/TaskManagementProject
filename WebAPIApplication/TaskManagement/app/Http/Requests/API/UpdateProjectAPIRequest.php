@@ -1,0 +1,41 @@
+<?php
+
+namespace App\Http\Requests\API;
+
+use App\Models\Project;
+
+
+use App\Traits\ResponseTrait;
+use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Http\Exceptions\HttpResponseException;
+use InfyOm\Generator\Request\APIRequest;
+
+class UpdateProjectAPIRequest  extends  APIRequest
+{
+    use ResponseTrait;
+    /**
+     * Determine if the user is authorized to make this request.
+     */
+    public function authorize(): bool
+    {
+        return true;
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     */
+    public function rules(): array
+    {
+        $rules = [
+            'name' => 'sometimes',
+            'end_date' => 'sometimes|date',
+            'project_status' => 'sometimes|in:created,waiting,pending,progress,finished'
+        ];
+        return $rules;
+    }
+
+    protected function failedValidation(Validator $validator)
+    {
+        throw new HttpResponseException($this->ApiResponse('fail', $validator->errors()->first()));
+    }
+}

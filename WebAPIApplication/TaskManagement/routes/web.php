@@ -30,7 +30,3 @@ Route::group(['middleware' => ['auth:sanctum', 'verified'], 'namespace' => 'App\
     Route::resource('admins', AdminController::class);
     Route::resource('teamMembers', TeamMemberController::class);
 });
-Route::get('/email', function () {
-    Mail::to('razanhasan896@gmail.com')->send(new WelcomeMail());
-    return new WelcomeMail();
-});

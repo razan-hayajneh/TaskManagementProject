@@ -49,21 +49,22 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ## Steps For install the Project using terminal 
 
-    git clone https://github.com/razan-hayajneh/TaskManagementProject.git
+   
+## Steps For install the Project using terminal 
 
-    cd WebAPIApplication/TaskManagement
-
+    git clone https://github.com/razan-hayajneh/KMLGoogleMap.git
+--------------------------------------------------------------------
     composer install
-
+--------------------------------------------------------------------
     cp .env.example .env
-
+--------------------------------------------------------------------
     php artisan migrate
-
-    php artisan jwt:secret
-
+--------------------------------------------------------------------
     php artisan storage:link
-
+--------------------------------------------------------------------
     npm install
-
+--------------------------------------------------------------------
     npm run dev
+
+
 
